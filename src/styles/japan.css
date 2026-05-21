@@ -1,0 +1,352 @@
+/* ── Variables ─────────────────────────────── */
+:root {
+    --rojo: #c0392b;
+    --dorado: #b8860b;
+    --tinta: #0f0e0d;
+    --papel: #f5f0e8;
+    --papel2: #ede8db;
+    --borde: #d4c9b0;
+    --gris: #8a8070;
+
+    --font-serif: 'Noto Serif', 'Georgia', serif;
+    --font-mono: 'Space Mono', 'Courier New', monospace;
+}
+
+/* ── Base ───────────────────────────────────── */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--papel);
+    color: var(--tinta);
+    font-family: var(--font-serif);
+    /* Líneas de libreta */
+    background-image: repeating-linear-gradient(to bottom,
+            transparent,
+            transparent 27px,
+            var(--borde) 27px,
+            var(--borde) 28px);
+    min-height: 100vh;
+}
+
+/* ── Tipografía ─────────────────────────────── */
+h1,
+h2,
+h3 {
+    font-family: var(--font-serif);
+    color: var(--tinta);
+}
+
+.mono {
+    font-family: var(--font-mono);
+    letter-spacing: 0.05em;
+}
+
+.rojo {
+    color: var(--rojo);
+}
+
+.dorado {
+    color: var(--dorado);
+}
+
+.gris {
+    color: var(--gris);
+}
+
+/* ── Botones ────────────────────────────────── */
+.btn-japones {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 8px 20px;
+    border: 1.5px solid var(--tinta);
+    background: transparent;
+    color: var(--tinta);
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn-japones:hover {
+    background: var(--tinta);
+    color: var(--papel);
+}
+
+.btn-japones.rojo {
+    border-color: var(--rojo);
+    color: var(--rojo);
+}
+
+.btn-japones.rojo:hover {
+    background: var(--rojo);
+    color: white;
+}
+
+.btn-japones.dorado {
+    border-color: var(--dorado);
+    color: var(--dorado);
+}
+
+.btn-japones.dorado:hover {
+    background: var(--dorado);
+    color: white;
+}
+
+/* ── Cards del Home ─────────────────────────── */
+.roadmap-card {
+    background: var(--papel2);
+    border: 1px solid var(--borde);
+    border-left: 4px solid var(--rojo);
+    padding: 24px 28px;
+    cursor: pointer;
+    transition: transform 0.15s, box-shadow 0.15s;
+    position: relative;
+}
+
+.roadmap-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 4px 4px 0px var(--borde);
+}
+
+.roadmap-card .fase-badge {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    color: var(--gris);
+    text-transform: uppercase;
+}
+
+.roadmap-card h2 {
+    font-size: 1.4rem;
+    margin: 6px 0 4px;
+}
+
+.roadmap-card .mantra {
+    font-size: 0.8rem;
+    color: var(--dorado);
+    font-family: var(--font-mono);
+}
+
+/* ── Fases (Editor) ─────────────────────────── */
+.phase-block {
+    border-left: 3px solid var(--rojo);
+    background: var(--papel2);
+    margin-bottom: 12px;
+}
+
+.phase-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px 20px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.phase-header:hover {
+    background: rgba(192, 57, 43, 0.04);
+}
+
+.phase-number {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    background: var(--rojo);
+    color: white;
+    padding: 3px 10px;
+    white-space: nowrap;
+}
+
+.phase-content {
+    padding: 0 20px 16px 20px;
+}
+
+/* ── Ítems ──────────────────────────────────── */
+.roadmap-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 10px 0;
+    border-bottom: 1px dashed var(--borde);
+}
+
+.roadmap-item:last-child {
+    border-bottom: none;
+}
+
+.roadmap-item input[type="checkbox"] {
+    margin-top: 3px;
+    accent-color: var(--rojo);
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.roadmap-item.done span {
+    text-decoration: line-through;
+    color: var(--gris);
+}
+
+/* ── Barra superior ─────────────────────────── */
+.topbar {
+    background: var(--papel);
+    border-bottom: 2px solid var(--borde);
+    padding: 12px 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+/* ── Header del Editor ──────────────────────── */
+.editor-header {
+    text-align: center;
+    padding: 48px 24px 40px;
+    position: relative;
+    border-bottom: 1px solid var(--borde);
+    margin-bottom: 48px;
+}
+
+.editor-header .subtitulo-jp {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.3em;
+    color: var(--rojo);
+    margin-bottom: 12px;
+    text-transform: uppercase;
+}
+
+.editor-header h1 {
+    font-size: 2.8rem;
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 10px;
+}
+
+.editor-header h1 span {
+    color: var(--rojo);
+}
+
+.editor-header .autor-line {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    letter-spacing: 0.15em;
+    color: var(--gris);
+    margin-bottom: 28px;
+}
+
+/* Sello circular */
+.sello {
+    width: 72px;
+    height: 72px;
+    border: 2px solid var(--rojo);
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--rojo);
+    font-size: 1.1rem;
+    margin: 8px auto 0;
+    transition: transform 0.6s ease;
+    cursor: default;
+}
+
+.sello:hover {
+    transform: rotate(20deg);
+}
+
+/* Kanji de fondo en el header */
+.editor-header .kanji-bg {
+    position: absolute;
+    font-size: 9rem;
+    color: var(--tinta);
+    opacity: 0.04;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    user-select: none;
+    z-index: 0;
+    font-family: serif;
+}
+
+.editor-header>*:not(.kanji-bg) {
+    position: relative;
+    z-index: 1;
+}
+
+/* Mantra footer */
+.mantra-footer {
+    text-align: center;
+    padding: 48px 24px;
+    border-top: 1px solid var(--borde);
+    margin-top: 48px;
+}
+
+.mantra-footer .mantra-jp {
+    font-size: 2rem;
+    color: var(--rojo);
+    letter-spacing: 0.4em;
+    font-family: serif;
+    margin-bottom: 8px;
+}
+
+.mantra-footer .mantra-texto {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    color: var(--gris);
+    text-transform: uppercase;
+}
+
+/* Topbar sticky del editor */
+.editor-topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 32px;
+    background: var(--papel);
+    border-bottom: 1px solid var(--borde);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+/* Cards del home mejoradas */
+.roadmap-card .card-fecha {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.12em;
+    color: var(--gris);
+    text-transform: uppercase;
+    margin-bottom: 6px;
+}
+
+.roadmap-card h2 {
+    font-size: 1.5rem;
+    margin-bottom: 6px;
+}
+
+.roadmap-card .card-mantra {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--dorado);
+    letter-spacing: 0.08em;
+}
+
+.roadmap-card .card-fases {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    color: var(--gris);
+    letter-spacing: 0.1em;
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px dashed var(--borde);
+}
